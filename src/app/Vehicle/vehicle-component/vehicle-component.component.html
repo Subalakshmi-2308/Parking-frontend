@@ -1,0 +1,35 @@
+<div>
+    <h3> ADD VEHICLE</h3>
+    <form (ngSubmit)="addBooking()">
+        <label>
+            Select Vehicle Type : 
+        </label>
+        <select [(ngModel)]="defaultVehicle.type" name="type">
+            <option value="CAR">Car</option>
+            <option value="TRUCK"> Truck </option>
+            <option value="VAN"> Van</option>
+        </select>
+        <label>Select User : </label>
+        <select [(ngModel)]="defaultVehicle.user" name="user">
+            <option *ngFor="let i of users" [ngValue]= "i">{{i.name}}</option>
+        </select>
+        <button type="submit">Add vehicle</button>
+    </form>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <th>Vehicle ID</th>
+            <th>Vehicle Type</th>
+            <th>User</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of allvehicle">
+                <td>{{i.id}}</td>
+                <td>{{i.type}}</td>
+                <td>{{i.user.name}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

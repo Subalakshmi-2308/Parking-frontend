@@ -1,0 +1,60 @@
+<form (ngSubmit)="addBooking()">
+    <label>Enter User Id</label>
+    <input [(ngModel)]="defaultBooking.userId" name="userId" type="number"/>
+    <label>Select Parking</label>
+    <select [(ngModel)]="defaultBooking.parkingSpot" name="parkingSpot">
+        <option *ngFor="let i of parking" [ngValue]="i">{{i.status}}</option>
+    </select>
+    <label>ENter timeStamp : </label>
+    <input [(ngModel)]="defaultBooking.timestamp" name="timeStamp" type="datetime-local"/>
+    <button type="submit"> Add </button>
+</form>
+<br>
+<br>
+<div>
+    <table border="1">
+        <thead>
+            <th>Booking ID</th>
+            <th>User ID</th>
+            <th>Parking status</th>
+            <th>TimeStamp</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of bookings">
+                <td>{{i.id}}</td>
+                <td>{{i.userId}}</td>
+                <td>{{i.parkingSpot.status}}</td>
+                <td>{{i.timestamp}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <form (ngSubmit)="getBookingDetails()">
+        <label>Enter Id to get full details : </label>
+        <input [(ngModel)]="searchId" name="searchId" type="number"/>
+        <button type="submit" >Search</button>
+    </form>
+</div>
+
+<div *ngIf="bookingdetails">
+    <table border="1">
+        <thead>
+            <th>Booking ID</th>
+            <th>User </th>
+            <th>Parking status</th>
+            <th>TimeStamp</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{bookingdetails.id}}</td>
+                <td>{{bookingdetails.user| json}}</td>
+                <td>{{bookingdetails.parkingSpot.status}}</td>
+                <td>{{bookingdetails.timestamp}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,28 @@
+<form (ngSubmit)="addParking()">
+    <label>Enter location : </label>
+    <input [(ngModel)]="defaultParkingSpot.location" type="text" name="location"/>
+    <label>Select Status : </label>
+    <select [(ngModel)]="defaultParkingSpot.status" name="status">
+        <option value="PARKED">Parked</option>
+        <option value="UNPARKED">Unparked</option>
+        
+    </select>
+    <button type="submit">Add </button>
+</form>
+
+<div>
+    <table border="1">
+        <thead>
+            <th>ParkingSpot ID</th>
+            <th>ParkingSpot Location</th>
+            <th>ParkingSpot Status</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of all">
+                <td>{{i.id}}</td>
+                <td>{{i.location}}</td>
+                <td>{{i.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,7 @@
+<form (ngSubmit)="addUser()">
+    <label>Enter user name:</label>
+    <input [(ngModel)]="defaultUser.name" name="name" type="text"/>
+    <label>Enter email : </label>
+    <input [(ngModel)]="defaultUser.email" name="email" type="text"/>
+    <button type="submit">Add User</button>
+</form>

@@ -1,0 +1,28 @@
+<table align="center" border="1">
+    <thead>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>User Email</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of users">
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td><button (click)="popluateUser(i)">Update</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="form">
+    <form (ngSubmit)="updateUser()">
+    <label>ID  : </label>
+    <input [(ngModel)]="updatedUser.id" name="id" type="number" readonly/>
+    <label>Enter name </label>
+    <input [(ngModel)]="updatedUser.name" name="name" type="text"/>
+    <label>Enter email </label>
+    <input [(ngModel)]="updatedUser.email" name="email" type="text"/>
+    <button type="submit">Update User</button>
+</form>
+</div>
